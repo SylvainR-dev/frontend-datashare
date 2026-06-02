@@ -1,3 +1,6 @@
+// il gère le formulaire d'inscription, valide les données, appelle le backend via 
+// AuthService, et redirige vers /login après inscription réussie
+
 import { Component, OnInit, DestroyRef, inject } from "@angular/core";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
@@ -59,3 +62,21 @@ export class Register implements OnInit{
     this.registerForm.reset();
   }
 }
+
+
+// Le flux
+// Utilisateur remplit email + password
+//         ↓
+// onSubmit() → vérifie que le formulaire est valide
+//         ↓
+// Construit RegisterRequest (email + password)
+//         ↓
+// AuthService.register(registerRequest)
+//         ↓
+// AuthInterceptor (pas de token, requête sans modification)
+//         ↓
+// Backend POST /api/register → UserController → UserService → UserRepository
+//         ↓
+// Retourne UserResponseDTO (id + email + createdAt)
+//         ↓
+// router.navigate(['/login'])

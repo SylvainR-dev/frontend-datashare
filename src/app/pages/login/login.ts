@@ -1,3 +1,8 @@
+// il gère le formulaire de connexion, valide les données, appelle le backend via 
+// AuthService, et redirige l'utilisateur après connexion
+
+
+
 import { Component, OnInit, DestroyRef, inject } from "@angular/core";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
@@ -57,3 +62,22 @@ export class Login implements OnInit {
     this.loginForm.reset();
   }
 }
+
+
+// Utilisateur remplit email + password
+//         ↓
+// onSubmit() → vérifie que le formulaire est valide
+//         ↓
+// Construit LoginRequest (email + password)
+//         ↓
+// AuthService.login(loginRequest)
+//         ↓
+// AuthInterceptor (pas de token encore, requête sans modification)
+//         ↓
+// Backend POST /api/login → AuthController → AuthService → JwtService
+//         ↓
+// Retourne token JWT
+//         ↓
+// AuthService stocke token dans localStorage
+//         ↓
+// router.navigate(['/dashboard'])
