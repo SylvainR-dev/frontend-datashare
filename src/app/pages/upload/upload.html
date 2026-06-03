@@ -1,1 +1,93 @@
-<p>upload works!</p>
+<header class="navbar">
+  <div class="navbar-inner">
+    <span class="logo">DataShare</span>
+    @if (isLoggedIn) {
+      <button class="btn-ghost" routerLink="/history">Mon espace</button>
+    } @else {
+      <button class="btn-ghost" routerLink="/login">Se connecter</button>
+    }
+  </div>
+</header>
+
+<main class="page">
+  <div class="page-inner">
+
+    <!-- État 1 : aucun fichier sélectionné -->
+    @if (!selectedFile && !uploadSuccess) {
+      <div class="upload-zone">
+        <p class="upload-text">Tu veux partager un fichier ?</p>
+        <label for="fileInput" class="upload-btn">
+          <img src="frame_1.png" alt="Upload" class="upload-icon" />
+        </label>
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden />
+      </div>
+    }
+
+    <!-- État 2 : fichier sélectionné -->
+    @if (selectedFile && !uploadSuccess) {
+      <div class="card">
+        <h1 class="card-title">Ajouter un fichier</h1>
+
+        <div class="file-row">
+          <div class="file-info">
+            <img src="file-icon.png" alt="Fichier" class="file-icon" />
+            <div class="file-details">
+              <span class="file-name">{{ selectedFile.name }}</span>
+              <span class="file-size">{{ (selectedFile.size / 1024 / 1024).toFixed(1) }} Mo</span>
+            </div>
+          </div>
+          <label for="fileInputChanger" class="btn-changer">
+            Changer
+            <input type="file" id="fileInputChanger" (change)="onFileSelected($event)" hidden />
+          </label>
+        </div>
+
+        <div class="field">
+          <label>Expiration</label>
+          <div class="select-wrapper">
+            <select class="select-expiration">
+              <option value="1">Une journée</option>
+              <option value="3">3 jours</option>
+              <option value="7">7 jours</option>
+            </select>
+            <img src="chevron-down.png" alt="dropdown" class="chevron-icon" />
+          </div>
+        </div>
+
+        <button class="btn-submit" (click)="onUpload()">
+          <img src="upload_cloud.png" alt="Upload" class="btn-icon" /> Téléverser
+        </button>
+      </div>
+    }
+
+    <!-- État 3 : upload réussi -->
+    @if (uploadSuccess) {
+      <div class="card">
+        <h1 class="card-title">Ajouter un fichier</h1>
+
+        <div class="file-row">
+          <div class="file-info">
+            <img src="file-icon.png" alt="Fichier" class="file-icon" />
+            <div class="file-details">
+              <span class="file-name">{{ selectedFile?.name }}</span>
+              <span class="file-size">{{ selectedFile ? (selectedFile.size / 1024 / 1024).toFixed(1) : '' }} Mo</span>
+            </div>
+          </div>
+        </div>
+
+        <p class="success-text">Félicitations, ton fichier sera conservé chez nous pendant une semaine !</p>
+
+        <div class="link-box">
+          <a [href]="'http://localhost:4200/download/' + downloadToken" class="share-link">
+            http://localhost:4200/download/{{ downloadToken }}
+          </a>
+        </div>
+
+        <button class="btn-copy" (click)="onCopyLink()">
+          <img src="Copy.png" alt="Copier" class="btn-icon" /> Copier le lien
+        </button>
+      </div>
+    }
+
+  </div>
+</main>

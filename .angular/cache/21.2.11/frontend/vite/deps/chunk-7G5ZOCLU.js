@@ -73,16 +73,12 @@ import {
   SIGNAL,
   SIGNAL_NODE,
   SVG_NAMESPACE,
-  Subject,
-  Subscription,
   TVIEW,
   T_HOST,
   VIEW_REFS,
   ViewContext,
   XSS_SECURITY_URL,
   ZONELESS_ENABLED,
-  __spreadProps,
-  __spreadValues,
   _global,
   addToArray,
   angularZoneInstanceIdProperty,
@@ -230,7 +226,6 @@ import {
   leaveView,
   load,
   makeEnvironmentProviders,
-  map,
   markAncestorsForTraversal,
   markViewForRefresh,
   newArray,
@@ -272,7 +267,7 @@ import {
   storeLViewOnDestroy,
   stringify,
   stringifyForError,
-  throwError2 as throwError,
+  throwError,
   throwProviderNotFoundError,
   unwrapLView,
   unwrapRNode,
@@ -293,7 +288,14 @@ import {
   ɵɵnamespaceSVG,
   ɵɵresetView,
   ɵɵrestoreView
-} from "./chunk-SFFAFW37.js";
+} from "./chunk-IP2T2NBJ.js";
+import {
+  Subject,
+  Subscription,
+  __spreadProps,
+  __spreadValues,
+  map
+} from "./chunk-PJVWDKLX.js";
 
 // node_modules/@angular/core/fesm2022/_attribute-chunk.mjs
 var Attribute = {
@@ -22744,4 +22746,4 @@ export {
   RESPONSE_INIT,
   REQUEST_CONTEXT
 };
-//# sourceMappingURL=chunk-GTL5RHLZ.js.map
+//# sourceMappingURL=chunk-7G5ZOCLU.js.map

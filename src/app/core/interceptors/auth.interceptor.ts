@@ -7,16 +7,21 @@ import { HttpInterceptorFn } from '@angular/common/http';
 
 export const authInterceptor: HttpInterceptorFn = (req, next) => {
   const token = localStorage.getItem('token');
+  console.log('Token:', token);
+  console.log('URL:', req.url);
 
   if (token) {
     const clonedReq = req.clone({
       headers: req.headers.set('Authorization', `Bearer ${token}`)
     });
+    console.log('Authorization ajouté');
     return next(clonedReq);
   }
 
+  console.log('Pas de token');
   return next(req);
 };
+
 
 //Frontend veut appeler GET /files
 //         ↓

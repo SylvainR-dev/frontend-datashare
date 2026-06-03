@@ -13,10 +13,11 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: "app-login",
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: "./login.html",
   styleUrl: "./login.scss",
 })
@@ -52,7 +53,7 @@ export class Login implements OnInit {
     this.authService.login(loginUser)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
-        next: () => this.router.navigate(['/dashboard']),
+        next: () => this.router.navigate(['/upload']),
         error: (err) => console.error(err)
       });
   }

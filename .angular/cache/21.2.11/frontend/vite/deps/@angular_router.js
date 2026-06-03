@@ -1,7 +1,7 @@
 import {
   Title
-} from "./chunk-BARCEJLU.js";
-import "./chunk-7OAA3AQG.js";
+} from "./chunk-SSPSO7F7.js";
+import "./chunk-LEPAAGE2.js";
 import {
   HashLocationStrategy,
   Location,
@@ -11,11 +11,11 @@ import {
   PathLocationStrategy,
   PlatformNavigation,
   ViewportScroller
-} from "./chunk-JTIY3UTI.js";
+} from "./chunk-QNN2MVQG.js";
 import {
   LOCATION_INITIALIZED,
   PlatformLocation
-} from "./chunk-RQ4K4K5C.js";
+} from "./chunk-CW7UA6VJ.js";
 import {
   APP_BOOTSTRAP_LISTENER,
   ApplicationRef,
@@ -65,66 +65,68 @@ import {
   ɵɵloadQuery,
   ɵɵqueryRefresh,
   ɵɵsanitizeUrlOrResourceUrl
-} from "./chunk-GTL5RHLZ.js";
+} from "./chunk-7G5ZOCLU.js";
 import {
-  BehaviorSubject,
   DOCUMENT,
   DestroyRef,
-  EMPTY,
   ENVIRONMENT_INITIALIZER,
-  EmptyError,
   EnvironmentInjector,
   EventEmitter,
   INTERNAL_APPLICATION_ERROR_HANDLER,
   InjectionToken,
   Injector,
   NgZone,
-  Observable,
   PendingTasksInternal,
   RuntimeError,
+  Version,
+  computed,
+  effect,
+  formatRuntimeError,
+  inject,
+  isInjectable,
+  isStandalone,
+  linkedSignal,
+  makeEnvironmentProviders,
+  provideEnvironmentInitializer,
+  runInInjectionContext,
+  signal,
+  untracked,
+  ɵɵdefineInjectable,
+  ɵɵdefineInjector,
+  ɵɵinject
+} from "./chunk-IP2T2NBJ.js";
+import {
+  BehaviorSubject,
+  EMPTY,
+  EmptyError,
+  Observable,
   Subject,
   Subscription,
-  Version,
   __spreadProps,
   __spreadValues,
   catchError,
   combineLatest,
-  computed,
   concat,
   concatMap,
   defer,
-  effect,
   filter,
   finalize,
   first,
-  formatRuntimeError,
   from,
-  inject,
-  isInjectable,
   isObservable,
-  isStandalone,
-  linkedSignal,
-  makeEnvironmentProviders,
   map,
   mergeAll,
   mergeMap,
   of,
   pipe,
-  provideEnvironmentInitializer,
-  runInInjectionContext,
-  signal,
   startWith,
   switchMap,
   take,
   takeLast,
   takeUntil,
   tap,
-  throwError,
-  untracked,
-  ɵɵdefineInjectable,
-  ɵɵdefineInjector,
-  ɵɵinject
-} from "./chunk-SFFAFW37.js";
+  throwError
+} from "./chunk-PJVWDKLX.js";
 
 // node_modules/@angular/router/fesm2022/_router-chunk.mjs
 var PRIMARY_OUTLET = "primary";

@@ -1,11 +1,13 @@
 import { Component, DestroyRef, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { RouterLink } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { FileService } from "../../core/service/file.service";
+import { AuthService } from "../../core/service/auth.service";
 
 @Component({
   selector: "app-upload",
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: "./upload.html",
   styleUrl: "./upload.scss",
 })
@@ -13,6 +15,9 @@ export class Upload {
 
   private fileService = inject(FileService);
   private destroyRef = inject(DestroyRef);
+  private authService = inject(AuthService);
+
+  isLoggedIn = this.authService.isLoggedIn();
 
   selectedFile: File | null = null;
   uploadSuccess: boolean = false;
@@ -49,5 +54,10 @@ export class Upload {
           console.error(err);
         }
       });
+  }
+
+  onCopyLink(): void {
+    const link = `http://localhost:4200/download/${this.downloadToken}`;
+    navigator.clipboard.writeText(link);
   }
 }

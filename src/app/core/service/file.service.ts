@@ -1,13 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: "root",
 })
 export class FileService {
 
-  private apiUrl = 'http://localhost:8080/files';
+  private apiUrl = `${environment.apiUrl}/api/files`;
 
   constructor(private http: HttpClient) {}
 
@@ -20,6 +21,10 @@ export class FileService {
 
   getFileByToken(token: string): Observable<any> {
     return this.http.get(`${this.apiUrl}/${token}`);
+  }
+
+  getDownloadUrl(token: string): Observable<string> {
+    return this.http.get(`${this.apiUrl}/${token}/download-url`, { responseType: 'text' });
   }
 
   getFiles(): Observable<any[]> {

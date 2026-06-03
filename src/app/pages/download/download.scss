@@ -1,0 +1,46 @@
+.page-inner {
+  height: auto;
+  gap: 24px;
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  max-width: 592px;
+  height: 32px;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.banner-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.banner-warning {
+  background: #FFF5ED;
+  border: 1px solid #E6CBB5;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #AA642B;
+}
+
+.banner-error {
+  background: #FFE2E2;
+  border: 1px solid #E8A6A6;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #9C3333;
+}
+
+.file-details {
+  display: flex;
+  flex-direction: column;
+}

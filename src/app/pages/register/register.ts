@@ -11,10 +11,11 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: "app-register",
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: "./register.html",
   styleUrl: "./register.scss",
 })

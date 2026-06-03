@@ -1,1 +1,48 @@
-<p>download works!</p>
+<header class="navbar">
+  <div class="navbar-inner">
+    <span class="logo">DataShare</span>
+    <button class="btn-ghost">Se connecter</button>
+  </div>
+</header>
+
+<main class="page">
+  <div class="page-inner">
+
+    @if (fileInfo && !downloadError) {
+      <div class="card">
+        <h1 class="card-title">Télécharger un fichier</h1>
+
+        <div class="file-row">
+          <div class="file-info">
+            <img src="file-icon.png" alt="Fichier" class="file-icon" />
+            <div class="file-details">
+              <span class="file-name">{{ fileInfo.name }}</span>
+              <span class="file-size">{{ (fileInfo.size / 1024 / 1024).toFixed(1) }} Mo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="banner banner-warning">
+          <img src="icon-attention.png" alt="Attention" class="banner-icon" />
+          <span>Ce fichier expira le {{ fileInfo.expirationDate | date:'dd/MM/yyyy' }}</span>
+        </div>
+
+        <button class="btn-submit" (click)="onDownload()">
+          <img src="upload_cloud.png" alt="Télécharger" class="btn-icon" /> Télécharger
+        </button>
+      </div>
+    }
+
+    @if (downloadError) {
+      <div class="card">
+        <h1 class="card-title">Télécharger un fichier</h1>
+
+        <div class="banner banner-error">
+          <img src="icon-expire.png" alt="Expiré" class="banner-icon" />
+          <span>Ce fichier n'est plus disponible au téléchargement car il a expiré.</span>
+        </div>
+      </div>
+    }
+
+  </div>
+</main>

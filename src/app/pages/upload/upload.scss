@@ -1,0 +1,215 @@
+.page-inner {
+  height: auto;
+}
+
+/* ÉTAT 1 */
+.upload-zone {
+  width: 100%;
+  max-width: 1280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  padding: 40px 24px;
+}
+
+.upload-text {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 30px;
+  line-height: 40px;
+  color: #000000;
+  text-align: center;
+}
+
+.upload-btn {
+  width: 144px;
+  height: 144px;
+  border-radius: 240px;
+  background: #2F190D26;
+  border: none;
+  padding: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.upload-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ÉTAT 2 & 3 */
+.file-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.file-icon {
+  width: 24px;
+  height: 24px;
+}
+
+.file-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-name {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #1E1E1E;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 189px;
+}
+
+.file-size {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #B3B3B3;
+}
+
+.btn-changer {
+  width: 87px;
+  height: 32px;
+  background: #FFFFFF;
+  border: 1px solid #FFA569;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #E27F29;
+  cursor: pointer;
+}
+
+.btn-changer:hover {
+  background: #FFF3EC;
+}
+
+/* CHAMPS */
+.select-wrapper {
+  position: relative;
+  width: 348px;
+  height: 40px;
+}
+
+.select-expiration {
+  width: 100%;
+  height: 40px;
+  min-width: 240px;
+  background: #FFFFFF;
+  border: 1px solid #D9D9D9;
+  border-radius: 8px;
+  padding: 0 16px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: #1E1E1E;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.chevron-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+}
+
+/* BOUTON TÉLÉVERSER */
+.btn-submit {
+  width: fit-content;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  height: 40px;
+  background: #FF812D21;
+  border: 1px solid #CD5E1480;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: #BA681F;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background: #FF812D40;
+}
+
+.btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+/* ÉTAT 3 */
+.success-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}
+
+.link-box {
+  width: 100%;
+  max-width: 480px;
+  height: 40px;
+  background: #A499931A;
+  border-radius: 8px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+}
+
+.share-link {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #D8640B;
+  text-decoration: underline;
+}
+
+.btn-copy {
+  width: 145px;
+  height: 40px;
+  background: #FF812D21;
+  border: 1px solid #CD5E1480;
+  border-radius: 8px;
+  padding: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 16px;
+  color: #BA681F;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 0 auto;
+}
+
+.btn-copy:hover {
+  background: #FF812D40;
+}

@@ -422,7 +422,7 @@ import {
   ɵɵvalidateAttribute,
   ɵɵviewQuery,
   ɵɵviewQuerySignal
-} from "./chunk-GTL5RHLZ.js";
+} from "./chunk-7G5ZOCLU.js";
 import {
   CONTAINER_HEADER_OFFSET,
   ChangeDetectionScheduler,
@@ -504,7 +504,8 @@ import {
   ɵɵnamespaceSVG,
   ɵɵresetView,
   ɵɵrestoreView
-} from "./chunk-SFFAFW37.js";
+} from "./chunk-IP2T2NBJ.js";
+import "./chunk-PJVWDKLX.js";
 export {
   ANIMATION_MODULE_TYPE,
   APP_BOOTSTRAP_LISTENER,

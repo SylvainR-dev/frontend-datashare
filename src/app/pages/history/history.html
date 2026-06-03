@@ -1,1 +1,97 @@
-<p>history works!</p>
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo">DataShare</span>
+    </div>
+    <div class="sidebar-menu">
+      <span class="menu-item active">Mes fichiers</span>
+    </div>
+  </aside>
+
+  <!-- CONTENU PRINCIPAL -->
+  <div class="main">
+
+    <!-- HEADER -->
+    <div class="main-header">
+      <div class="main-header-actions">
+        <button class="btn-add">
+          <img src="upload_cloud.png" alt="Ajouter" class="btn-icon" /> Ajouter des fichiers
+        </button>
+        <button class="btn-deco">
+          <img src="icon-deco.png" alt="Déconnexion" class="btn-icon" /> Déconnexion
+        </button>
+      </div>
+    </div>
+
+    <!-- CONTENU -->
+    <div class="main-content">
+      <h1 class="content-title">Mes fichiers</h1>
+
+      <!-- ONGLETS -->
+      <div class="tabs">
+        <button class="tab active">Tous</button>
+        <button class="tab">Actifs</button>
+        <button class="tab">Expiré</button>
+      </div>
+
+      <!-- LISTE FICHIERS -->
+      <div class="file-list">
+
+        <!-- Fichier 1 -->
+        <div class="file-item">
+          <div class="file-left">
+            <img src="vector-img.png" alt="Image" class="file-type-icon" />
+            <div class="file-details">
+              <span class="file-item-name">IMG_9210_123123131313213231.jpg</span>
+              <span class="file-item-status">Expire dans 2 jours</span>
+            </div>
+          </div>
+          <div class="file-right">
+            <button class="btn-submit">
+              <img src="icon-suppr.png" alt="Supprimer" class="btn-icon" /> Supprimer
+            </button>
+            <button class="btn-submit">
+              <img src="arrow-right.png" alt="Accéder" class="btn-icon" /> Accéder
+            </button>
+          </div>
+        </div>
+
+        <!-- Fichier 2 -->
+        <div class="file-item">
+          <div class="file-left">
+            <img src="vector-mp3.png" alt="MP3" class="file-type-icon" />
+            <div class="file-details">
+              <span class="file-item-name">compo2.mp3</span>
+              <span class="file-item-status">Expire demain</span>
+            </div>
+          </div>
+          <div class="file-right">
+            <button class="btn-submit">
+              <img src="icon-suppr.png" alt="Supprimer" class="btn-icon" /> Supprimer
+            </button>
+            <button class="btn-submit">
+              <img src="arrow-right.png" alt="Accéder" class="btn-icon" /> Accéder
+            </button>
+          </div>
+        </div>
+
+        <!-- Fichier 3 expiré -->
+        <div class="file-item">
+          <div class="file-left">
+            <img src="vector-mp4.png" alt="MP4" class="file-type-icon" />
+            <div class="file-details">
+              <span class="file-item-name">vacances_ardeche.mp4</span>
+              <span class="file-item-status expired">Expiré</span>
+            </div>
+          </div>
+          <div class="file-right">
+            <span class="expired-msg">Ce fichier a expiré, il n'est plus stocké chez nous</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
