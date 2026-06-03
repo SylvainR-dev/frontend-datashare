@@ -73,12 +73,13 @@
 }
 
 .btn-add {
-  width: 169px;
+  width: auto;
   height: 32px;
   background: #2C2C2C;
   color: #F3EEEA;
   border: none;
   border-radius: 8px;
+  padding: 0 16px;
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-size: 16px;
@@ -216,4 +217,22 @@
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
   color: #000000;
+}
+
+.btn-submit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  background: #FF812D21;
+  border: 1px solid #CD5E1480;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  color: #BA681F;
+  cursor: pointer;
+  white-space: nowrap;
 }

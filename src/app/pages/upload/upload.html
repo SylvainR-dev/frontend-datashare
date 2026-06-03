@@ -45,8 +45,8 @@
         <div class="field">
           <label>Expiration</label>
           <div class="select-wrapper">
-            <select class="select-expiration">
-              <option value="1">Une journée</option>
+            <select class="select-expiration" (change)="onExpirationChange($event)">
+              <option value="1" selected>Une journée</option>
               <option value="3">3 jours</option>
               <option value="7">7 jours</option>
             </select>
@@ -55,7 +55,8 @@
         </div>
 
         <button class="btn-submit" (click)="onUpload()">
-          <img src="upload_cloud.png" alt="Upload" class="btn-icon" /> Téléverser
+          <img src="upload_cloud.png" alt="Upload" class="btn-icon" /> 
+          {{ isUploading ? 'Téléversement...' : 'Téléverser' }}
         </button>
       </div>
     }

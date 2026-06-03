@@ -94,6 +94,9 @@
   line-height: 16px;
   color: #E27F29;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .btn-changer:hover {

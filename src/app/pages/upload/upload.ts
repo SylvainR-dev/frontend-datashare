@@ -23,6 +23,8 @@ export class Upload {
   uploadSuccess: boolean = false;
   uploadError: string | null = null;
   downloadToken: string | null = null;
+  expirationDays: number = 1;
+  isUploading: boolean = false;
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -31,14 +33,28 @@ export class Upload {
     }
   }
 
+  onExpirationChange(event: Event): void {
+    const select = event.target as HTMLSelectElement;
+    this.expirationDays = parseInt(select.value);
+    console.log('Expiration jours:', this.expirationDays);
+  }
+
   onUpload(): void {
-    if (!this.selectedFile) {
+    if (!this.selectedFile || this.isUploading) {
       return;
     }
 
+    this.isUploading = true;
+
+    const expirationDate = new Date();
+    expirationDate.setDate(expirationDate.getDate() + this.expirationDays);
+
+    const formattedDate = expirationDate.toISOString().slice(0, 19);
+
     const metadata = {
       name: this.selectedFile.name,
-      size: this.selectedFile.size
+      size: this.selectedFile.size,
+      expirationDate: formattedDate
     };
 
     this.fileService.uploadFile(this.selectedFile, metadata)
@@ -48,9 +64,11 @@ export class Upload {
           this.uploadSuccess = true;
           this.downloadToken = response.token;
           this.uploadError = null;
+          this.isUploading = false;
         },
         error: (err) => {
           this.uploadError = 'Erreur lors de l\'upload';
+          this.isUploading = false;
           console.error(err);
         }
       });
