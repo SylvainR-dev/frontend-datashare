@@ -38,3 +38,20 @@ Couverture obtenue : **91.35%**
 | pages/history | 90.54% |
 | pages/download | 91.66% |
 | services | 80% |
+
+
+
+## Tests end-to-end (Cypress)
+
+Outil utilisé : **Cypress v15.16.0**
+
+| Scénario | Fichier | Étapes | Résultat |
+|---|---|---|---|
+| Création de compte | `auth.cy.ts` | Remplir le formulaire register → vérifier redirection vers /login | ✅ Passé |
+| Connexion utilisateur | `auth.cy.ts` | Remplir le formulaire login → vérifier redirection vers /upload | ✅ Passé |
+| Upload de fichier | `upload.cy.ts` | Se connecter → sélectionner un fichier → cliquer téléverser → vérifier lien affiché | ✅ Passé |
+| Téléchargement via lien | `download.cy.ts` | Uploader un fichier → récupérer le token → visiter la page download → vérifier les infos | ✅ Passé |
+
+![Cypress auth](docs/cypress-auth.png)
+![Cypress upload](docs/cypress-upload.png)
+![Cypress download](docs/cypress-download.png)
