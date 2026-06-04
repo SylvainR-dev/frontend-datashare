@@ -14,3 +14,30 @@ a.link {
 .btn-submit {
   margin-top: 15px;
 }
+
+
+@media (max-width: 768px) {
+  .navbar-inner {
+    padding: 0 16px;
+  }
+
+  .page {
+    padding: 60px 44px;
+  }
+
+  .page-inner {
+    padding: 0;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 345px;
+    height: auto;
+    padding: 24px;
+    gap: 24px;
+  }
+}

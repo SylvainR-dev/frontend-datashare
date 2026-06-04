@@ -216,3 +216,77 @@
 .btn-copy:hover {
   background: #FF812D40;
 }
+
+@media (max-width: 768px) {
+  .upload-zone {
+    padding: 0 24px;
+    height: auto;
+  }
+
+  .upload-text {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .page {
+    padding: 40px 24px;
+  }
+
+  .page-inner {
+    padding: 0;
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 345px;
+    height: auto;
+    padding: 24px;
+    overflow: visible;
+    position: relative;
+  }
+
+  .file-row {
+    width: 100%;
+  }
+
+  .file-info {
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .file-name {
+    max-width: 150px;
+  }
+
+  .btn-changer {
+    flex-shrink: 0;
+    width: 80px;
+    font-size: 14px;
+  }
+
+  .select-wrapper {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .select-expiration {
+    width: 100%;
+    min-width: unset;
+    max-width: 100%;
+  }
+
+  .link-box {
+    max-width: 100%;
+  }
+
+  .share-link {
+    font-size: 14px;
+    word-break: break-all;
+  }
+}

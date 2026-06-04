@@ -1,12 +1,21 @@
 <div class="layout">
 
+  <!-- OVERLAY (mobile) -->
+  @if (isSidebarOpen) {
+    <div class="overlay" (click)="closeSidebar()"></div>
+  }
+
   <!-- SIDEBAR -->
-  <aside class="sidebar">
+  <aside class="sidebar" [class.sidebar-open]="isSidebarOpen">
     <div class="sidebar-logo">
+      <button class="btn-close-sidebar" (click)="closeSidebar()">✕</button>
       <span class="logo">DataShare</span>
     </div>
     <div class="sidebar-menu">
       <span class="menu-item active">Mes fichiers</span>
+      <button class="menu-item-upload" routerLink="/upload" (click)="closeSidebar()">
+        Ajouter un fichier
+      </button>
     </div>
     <div class="sidebar-footer">
       <p class="sidebar-copyright">Copyright DataShare® 2025</p>
@@ -16,8 +25,8 @@
   <!-- CONTENU PRINCIPAL -->
   <div class="main">
 
-    <!-- HEADER -->
-    <div class="main-header">
+    <!-- HEADER DESKTOP -->
+    <div class="main-header desktop-header">
       <div class="main-header-actions">
         <button class="btn-add" routerLink="/upload">
           Ajouter des fichiers
@@ -26,6 +35,12 @@
           <img src="icon-deco.png" alt="Déconnexion" class="btn-icon" /> Déconnexion
         </button>
       </div>
+    </div>
+
+    <!-- HEADER MOBILE -->
+    <div class="main-header mobile-header">
+      <span class="mobile-title">DataShare</span>
+      <button class="btn-hamburger" (click)="toggleSidebar()">☰</button>
     </div>
 
     <!-- CONTENU -->
@@ -57,14 +72,27 @@
             </div>
             <div class="file-right">
               @if (isExpired(file)) {
-                <span class="expired-msg">Ce fichier a expiré, il n'est plus stocké chez nous</span>
+                <span class="expired-msg">Ce fichier a expiré</span>
               } @else {
-                <button class="btn-submit" (click)="deleteFile(file.id)">
-                  <img src="icon-suppr.png" alt="Supprimer" class="btn-icon" /> Supprimer
-                </button>
-                <button class="btn-submit" [routerLink]="['/download', file.token]">
-                  <img src="arrow-right.png" alt="Accéder" class="btn-icon" /> Accéder
-                </button>
+                <!-- DESKTOP : boutons normaux -->
+                <div class="desktop-actions">
+                  <button class="btn-submit" (click)="deleteFile(file.id)">
+                    <img src="icon-suppr.png" alt="Supprimer" class="btn-icon" /> Supprimer
+                  </button>
+                  <button class="btn-submit" [routerLink]="['/download', file.token]">
+                    <img src="arrow-right.png" alt="Accéder" class="btn-icon" /> Accéder
+                  </button>
+                </div>
+                <!-- MOBILE : menu 3 points -->
+                <div class="mobile-actions">
+                  <button class="btn-three-dots" (click)="file.menuOpen = !file.menuOpen">⋮</button>
+                  @if (file.menuOpen) {
+                    <div class="dropdown-menu">
+                      <button (click)="deleteFile(file.id); file.menuOpen = false">Supprimer</button>
+                      <button [routerLink]="['/download', file.token]">Accéder</button>
+                    </div>
+                  }
+                </div>
               }
             </div>
           </div>

@@ -14,3 +14,27 @@ a.link {
 .btn-ghost {
   width: auto;
 }
+
+
+@media (max-width: 768px) {
+  .navbar-inner {
+    padding: 0 16px;
+  }
+
+  .page {
+    padding: 60px 44px;
+  }
+
+  .page-inner {
+    padding: 0;
+    height: auto;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 345px;
+    height: auto;
+    padding: 24px;
+    gap: 24px;
+  }
+}

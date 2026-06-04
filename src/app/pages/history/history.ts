@@ -22,6 +22,7 @@ export class History implements OnInit {
   files: any[] = [];
   loadError: string | null = null;
   activeFilter: string = 'tous';
+  isSidebarOpen: boolean = false;
 
   ngOnInit(): void {
     this.loadFiles();
@@ -67,6 +68,14 @@ export class History implements OnInit {
 
   setFilter(filter: string): void {
     this.activeFilter = filter;
+  }
+
+  toggleSidebar(): void {
+    this.isSidebarOpen = !this.isSidebarOpen;
+  }
+
+  closeSidebar(): void {
+    this.isSidebarOpen = false;
   }
 
   get filteredFiles(): any[] {
