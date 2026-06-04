@@ -3,6 +3,7 @@ import { Upload } from "./upload";
 import { FileService } from "../../core/service/file.service";
 import { of, throwError } from "rxjs";
 import { vi } from "vitest";
+import { provideRouter } from '@angular/router';
 
 describe("Upload", () => {
   let component: Upload;
@@ -17,7 +18,8 @@ describe("Upload", () => {
     await TestBed.configureTestingModule({
       imports: [Upload],
       providers: [
-        { provide: FileService, useValue: fileServiceMock }
+          provideRouter([]),
+          { provide: FileService, useValue: fileServiceMock }
       ]
     }).compileComponents();
 

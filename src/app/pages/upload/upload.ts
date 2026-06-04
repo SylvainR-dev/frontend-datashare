@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject } from "@angular/core";
+import { Component, DestroyRef, inject, ViewChild, ElementRef, ChangeDetectorRef } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterLink } from "@angular/router";
 import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
@@ -16,6 +16,9 @@ export class Upload {
   private fileService = inject(FileService);
   private destroyRef = inject(DestroyRef);
   private authService = inject(AuthService);
+  private cdr = inject(ChangeDetectorRef);
+
+  @ViewChild('fileInput') fileInputRef!: ElementRef;
 
   isLoggedIn = this.authService.isLoggedIn();
 
@@ -25,6 +28,10 @@ export class Upload {
   downloadToken: string | null = null;
   expirationDays: number = 1;
   isUploading: boolean = false;
+
+  triggerFileInput(): void {
+    this.fileInputRef.nativeElement.click();
+  }
 
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
@@ -36,7 +43,6 @@ export class Upload {
   onExpirationChange(event: Event): void {
     const select = event.target as HTMLSelectElement;
     this.expirationDays = parseInt(select.value);
-    console.log('Expiration jours:', this.expirationDays);
   }
 
   onUpload(): void {
@@ -65,10 +71,12 @@ export class Upload {
           this.downloadToken = response.token;
           this.uploadError = null;
           this.isUploading = false;
+          this.cdr.detectChanges();
         },
         error: (err) => {
           this.uploadError = 'Erreur lors de l\'upload';
           this.isUploading = false;
+          this.cdr.detectChanges();
           console.error(err);
         }
       });

@@ -2,8 +2,10 @@
   <router-outlet />
 </div>
 
-<footer class="footer">
-  <div class="footer-inner">
-    <p class="footer-text">Copyright DataShare® 2025</p>
-  </div>
-</footer>
+@if (!isHistoryPage) {
+  <footer class="footer">
+    <div class="footer-inner">
+      <p class="footer-text">Copyright DataShare® 2025</p>
+    </div>
+  </footer>
+}

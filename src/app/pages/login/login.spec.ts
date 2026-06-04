@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { of, throwError } from 'rxjs';
 import { vi } from 'vitest';
 
@@ -18,10 +18,11 @@ describe('Login Component', () => {
     routerMock = { navigate: vi.fn() };
 
     await TestBed.configureTestingModule({
-      imports: [Login, ReactiveFormsModule],
+      imports: [Login, ReactiveFormsModule, RouterModule],
       providers: [
         { provide: AuthService, useValue: authServiceMock },
-        { provide: Router, useValue: routerMock }
+        { provide: Router, useValue: routerMock },
+        { provide: ActivatedRoute, useValue: { snapshot: { params: {} } } }
       ]
     }).compileComponents();
 
@@ -51,10 +52,10 @@ describe('Login Component', () => {
   });
 
   // Test 4 - Connexion réussie
-  it('should redirect to /dashboard on successful login', () => {
+  it('should redirect to /upload on successful login', () => {
     authServiceMock.login.mockReturnValue(of({}));
     component.loginForm.setValue({ email: 'test@test.com', password: 'password123' });
     component.onSubmit();
-    expect(routerMock.navigate).toHaveBeenCalledWith(['/dashboard']);
+    expect(routerMock.navigate).toHaveBeenCalledWith(['/upload']);
   });
 });

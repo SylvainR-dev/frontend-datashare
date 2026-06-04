@@ -31,7 +31,7 @@ describe('AuthService', () => {
 
     service.register(user).subscribe();
 
-    const req = httpMock.expectOne('/register');
+    const req = httpMock.expectOne('http://localhost:8080/api/register');
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toEqual(user);
     req.flush({});
@@ -46,7 +46,7 @@ describe('AuthService', () => {
       expect(response).toEqual(mockResponse);
     });
 
-    const req = httpMock.expectOne('/register');
+    const req = httpMock.expectOne('http://localhost:8080/api/register');
     req.flush(mockResponse);
   });
 
@@ -60,7 +60,7 @@ describe('AuthService', () => {
       }
     });
 
-    const req = httpMock.expectOne('/register');
+    const req = httpMock.expectOne('http://localhost:8080/api/register');
     req.flush('Email already exists', { status: 409, statusText: 'Conflict' });
   });
 });

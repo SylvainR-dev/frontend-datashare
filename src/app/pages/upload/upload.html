@@ -16,10 +16,10 @@
     @if (!selectedFile && !uploadSuccess) {
       <div class="upload-zone">
         <p class="upload-text">Tu veux partager un fichier ?</p>
-        <label for="fileInput" class="upload-btn">
+        <button class="upload-btn" (click)="triggerFileInput()">
           <img src="frame_1.png" alt="Upload" class="upload-icon" />
-        </label>
-        <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden />
+        </button>
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden #fileInput />
       </div>
     }
 

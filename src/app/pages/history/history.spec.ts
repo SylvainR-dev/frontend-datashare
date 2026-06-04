@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
+import { ActivatedRoute, RouterModule } from "@angular/router";
 import { History } from "./history";
 import { FileService } from "../../core/service/file.service";
 import { of, throwError } from "rxjs";
@@ -16,9 +17,10 @@ describe("History", () => {
     };
 
     await TestBed.configureTestingModule({
-      imports: [History],
+      imports: [History, RouterModule],
       providers: [
-        { provide: FileService, useValue: fileServiceMock }
+        { provide: FileService, useValue: fileServiceMock },
+        { provide: ActivatedRoute, useValue: { snapshot: { params: {} } } }
       ]
     }).compileComponents();
 

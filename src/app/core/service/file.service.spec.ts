@@ -30,7 +30,7 @@ describe("FileService", () => {
     expect(service).toBeTruthy();
   });
 
-  // Test 2 — uploadFile appelle POST /files
+  // Test 2 — uploadFile appelle POST /api/files
   it("should call POST /files on uploadFile", () => {
     const file = new File(["contenu"], "test.pdf", { type: "application/pdf" });
     const metadata = { name: "test.pdf", size: 1024 };
@@ -41,7 +41,7 @@ describe("FileService", () => {
     });
 
     expect(httpClientMock.post).toHaveBeenCalledWith(
-      "http://localhost:8080/files",
+      "http://localhost:8080/api/files",
       expect.any(FormData)
     );
   });
@@ -59,7 +59,7 @@ describe("FileService", () => {
     });
   });
 
-  // Test 4 — getFileByToken appelle GET /files/{token}
+  // Test 4 — getFileByToken appelle GET /api/files/{token}
   it("should call GET /files/{token} on getFileByToken", () => {
     httpClientMock.get.mockReturnValue(of({ name: "test.pdf", token: "mon-token" }));
 
@@ -68,11 +68,11 @@ describe("FileService", () => {
     });
 
     expect(httpClientMock.get).toHaveBeenCalledWith(
-      "http://localhost:8080/files/mon-token"
+      "http://localhost:8080/api/files/mon-token"
     );
   });
 
-  // Test 5 — getFiles appelle GET /files
+  // Test 5 — getFiles appelle GET /api/files
   it("should call GET /files on getFiles", () => {
     httpClientMock.get.mockReturnValue(of([
       { id: 1, name: "fichier1.pdf" },
@@ -84,18 +84,18 @@ describe("FileService", () => {
     });
 
     expect(httpClientMock.get).toHaveBeenCalledWith(
-      "http://localhost:8080/files"
+      "http://localhost:8080/api/files"
     );
   });
 
-  // Test 6 — deleteFile appelle DELETE /files/{id}
+  // Test 6 — deleteFile appelle DELETE /api/files/{id}
   it("should call DELETE /files/{id} on deleteFile", () => {
     httpClientMock.delete.mockReturnValue(of(null));
 
     service.deleteFile(1).subscribe();
 
     expect(httpClientMock.delete).toHaveBeenCalledWith(
-      "http://localhost:8080/files/1"
+      "http://localhost:8080/api/files/1"
     );
   });
 
