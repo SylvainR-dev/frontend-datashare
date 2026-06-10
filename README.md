@@ -12,8 +12,8 @@ Interface utilisateur développée avec Angular pour l'application de partage de
 
 ## Prérequis
 
-- Node.js 20.20.2
-- Angular CLI 19.x
+- Node.js
+- Angular CLI
 
 ## Installation
 
