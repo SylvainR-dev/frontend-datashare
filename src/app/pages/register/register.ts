@@ -19,20 +19,24 @@ import { RouterLink } from '@angular/router';
   templateUrl: "./register.html",
   styleUrl: "./register.scss",
 })
-export class Register implements OnInit{
+export class Register implements OnInit {
 
   private userService = inject(AuthService);
   private formBuilder = inject(FormBuilder);
   private destroyRef = inject(DestroyRef);
   private router = inject(Router);
+
   registerForm: FormGroup = new FormGroup({});
   submitted: boolean = false;
+  showPassword: boolean = false;
+  showConfirm: boolean = false;
 
   ngOnInit() {
     this.registerForm = this.formBuilder.group(
       {
         email: ['', Validators.required],
-        password: ['', Validators.required]
+        password: ['', Validators.required],
+        confirmPassword: ['', Validators.required]
       },
     );
   }

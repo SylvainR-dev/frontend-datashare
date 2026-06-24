@@ -20,6 +20,10 @@
           <img src="frame_1.png" alt="Upload" class="upload-icon" />
         </button>
         <input type="file" id="fileInput" (change)="onFileSelected($event)" hidden #fileInput />
+
+        @if (uploadError) {
+          <p class="upload-error">{{ uploadError }}</p>
+        }
       </div>
     }
 
@@ -53,6 +57,10 @@
             <img src="chevron-down.png" alt="dropdown" class="chevron-icon" />
           </div>
         </div>
+
+        @if (uploadError) {
+          <p class="upload-error">{{ uploadError }}</p>
+        }
 
         <button class="btn-submit" (click)="onUpload()">
           <img src="upload_cloud.png" alt="Upload" class="btn-icon" /> 

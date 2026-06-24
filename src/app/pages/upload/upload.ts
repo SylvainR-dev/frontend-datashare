@@ -29,6 +29,8 @@ export class Upload {
   expirationDays: number = 1;
   isUploading: boolean = false;
 
+  private readonly FORBIDDEN_EXTENSIONS = ['.exe', '.bat', '.sh', '.cmd', '.msi', '.vbs', '.ps1'];
+
   triggerFileInput(): void {
     this.fileInputRef.nativeElement.click();
   }
@@ -37,6 +39,15 @@ export class Upload {
     const input = event.target as HTMLInputElement;
     if (input.files && input.files.length > 0) {
       this.selectedFile = input.files[0];
+      this.uploadError = null;
+
+      // Vérification de l'extension dès la sélection
+      const fileName = this.selectedFile.name.toLowerCase();
+      const isForbidden = this.FORBIDDEN_EXTENSIONS.some(ext => fileName.endsWith(ext));
+      if (isForbidden) {
+        this.uploadError = 'Ce fichier n\'est pas autorisé (.exe, .bat, .sh et autres extensions dangereuses sont interdites)';
+        this.selectedFile = null;
+      }
     }
   }
 
@@ -74,7 +85,11 @@ export class Upload {
           this.cdr.detectChanges();
         },
         error: (err) => {
-          this.uploadError = 'Erreur lors de l\'upload';
+          if (err.status === 400 && err.error) {
+            this.uploadError = 'Ce fichier n\'est pas autorisé';
+          } else {
+            this.uploadError = 'Erreur lors de l\'upload';
+          }
           this.isUploading = false;
           this.cdr.detectChanges();
           console.error(err);

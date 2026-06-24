@@ -1,8 +1,6 @@
 // il gère le formulaire de connexion, valide les données, appelle le backend via 
 // AuthService, et redirige l'utilisateur après connexion
 
-
-
 import { Component, OnInit, DestroyRef, inject } from "@angular/core";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 
@@ -27,8 +25,10 @@ export class Login implements OnInit {
   private formBuilder = inject(FormBuilder);
   private destroyRef = inject(DestroyRef);
   private router = inject(Router);
+
   loginForm: FormGroup = new FormGroup({});
   submitted: boolean = false;
+  showPassword: boolean = false;
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
